@@ -5,17 +5,10 @@ import ListadoPacientes from './components/ListadoPacientes'
 
 
 function App() {
-  const [pacientes,setPacientes] = useState([])
-  const [paciente, setPaciente] = useState([])
-  useEffect(() =>{
-    const obtenerLS = () =>{
-      const pacientesLS = JSON.parse(localStorage.getItem('pacientes')) ?? []
-      setPacientes(pacientesLS)
-    }
-    obtenerLS()
-  },[])
-
-  useEffect(() =>{
+  const storage = JSON.parse(localStorage.getItem('pacientes')) ?? [];
+  const[pacientes, setPacientes]=useState(storage);
+  const [paciente, setPaciente] = useState({})
+  useEffect(()=>{
     localStorage.setItem('pacientes',JSON.stringify(pacientes))
   },[pacientes])
   
