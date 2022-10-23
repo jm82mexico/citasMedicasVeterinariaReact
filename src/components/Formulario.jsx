@@ -7,10 +7,25 @@ const Formulario = ({ pacientes, setPacientes, paciente, setPaciente }) => {
     const [fecha,setFecha] = useState('')
     const [sintomas,setSintomas] = useState('')
 
-    // const [error, setError] = useState('')
+    const [error, setError] = useState(false)
+
+    const generarId  = () =>{
+        const random = Math.random().toString(36).substring(2)
+        const fecha = Date.now().toString(36)
+        return random+fecha
+    }
 
     const handleSubmit = (e) =>{
         e.preventDefault()
+
+        //! VALIDAR SI HAY ERRORES
+        if([nombre,propietario,email,fecha,sintomas].includes('')){
+            console.log('Hay al menos un campo vacio')
+            setError(true)
+            return
+        }
+
+        setError(false)
 
         // * OBJECTO PACIENTE
         const objetoPaciente ={
@@ -21,6 +36,9 @@ const Formulario = ({ pacientes, setPacientes, paciente, setPaciente }) => {
             sintomas
         }
         console.log(objetoPaciente)
+
+        
+        
     }
 
 
