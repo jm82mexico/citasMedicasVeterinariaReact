@@ -1,12 +1,13 @@
 import { useState } from 'react'
+import Header from './Components/Header'
 
 
 function App() {
   
 
   return (
-    <div className="App">
-      <h1>Hola</h1>
+    <div className="container mx-auto mt-20">
+      <Header/>
     </div>
   )
 }
