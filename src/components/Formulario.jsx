@@ -35,9 +35,16 @@ const Formulario = ({ pacientes, setPacientes, paciente, setPaciente }) => {
             fecha,
             sintomas
         }
-        console.log(objetoPaciente)
-
         
+        objetoPaciente.id = generarId()
+        setPacientes([...pacientes,objetoPaciente])
+
+        // + REINICIAR EL FORM
+        setNombre('')
+        setPropietario('')
+        setEmail('')
+        setFecha('')
+        setSintomas('')       
         
     }
 
