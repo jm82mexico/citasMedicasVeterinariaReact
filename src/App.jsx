@@ -11,6 +11,11 @@ function App() {
   useEffect(()=>{
     localStorage.setItem('pacientes',JSON.stringify(pacientes))
   },[pacientes])
+
+  const eliminarPaciente = id => {
+    const pacientesActualizados = pacientes.filter( paciente => paciente.id !== id);
+    setPacientes(pacientesActualizados)
+  }
   
   return (
     <div className="container mx-auto mt-20">
@@ -24,7 +29,8 @@ function App() {
         />
         <ListadoPacientes
           pacientes={pacientes}
-          setPacientes = {setPacientes}
+          setPaciente = {setPaciente}
+          eliminarPaciente = {eliminarPaciente}
         />
       </div>
     </div>
